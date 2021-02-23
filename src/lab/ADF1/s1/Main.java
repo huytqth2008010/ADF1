@@ -1,4 +1,4 @@
-package lab.s1;
+package lab.ADF1.s1;
 
 public class Main {
     // Lab s1
