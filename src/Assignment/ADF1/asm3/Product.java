@@ -3,29 +3,54 @@ package Assignment.ADF1.asm3;
 import java.util.ArrayList;
 
 public class Product {
-    private int id;
-    private String productName;
-    private int qly;
-    private float price;
-    public Product(){
+    int id;
+    String productName;
+    int qty;
+    double price;
+
+    public Product() {
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public String getProductName() { return productName; }
-    public void setProductName(String name) { this.productName = name; }
-    public int getQly() { return qly; }
-    public void setQly(int qly) { this.qly = qly; }
-    public float getPrice() { return price; }
-    public void setPrice(float price) { this.price = price; }
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getProductName() {
+        return productName;
+    }
 
-    public void kiemtra(){
-        if(qly>0)
-            System.out.println("còn hàng");
-        else
-            System.out.println("hết hàng");
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public boolean checkQty(){
+        if(qty>0){
+            System.out.println("Con hang");
+            return true;
+        }
+        System.out.println("Het hang");
+        return false;
+
     }
 
 }
