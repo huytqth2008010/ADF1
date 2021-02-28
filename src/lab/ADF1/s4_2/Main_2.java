@@ -31,7 +31,8 @@ public class Main_2{
 
         System.out.println("danh sach sinh vien trong lop:");
         for (SinhVien p : lh.getDanhsachsinhvien()) {
-            System.out.println(p.getMaso() + "-" + p.getHovaten() + "-" + p.getDiachi() + "-" + p.getSdt());
+            System.out.println("Mã SV:"+p.getMaso() + "\n" + "Họ và tên :"+p.getHovaten() + "\n" +"Địa Chỉ :"+ p.getDiachi() + "\n"+"Sdt:"+ p.getSdt());
+            System.out.println();
         }
     }
 }
