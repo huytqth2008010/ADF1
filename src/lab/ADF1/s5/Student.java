@@ -48,7 +48,7 @@ public class Student extends Person {
         System.out.println("DiaChi của SV update...: " + getDiaChi());
         System.out.println("MaSV của SV : " + getMaSV());
         System.out.println("DiemThi của SV : " + getDiemThi());
-        System.out.println("Gmail của SV : " + getGmail() + "@gmail.com");
+        System.out.println("Gmail của SV : " + getGmail());
         System.out.println();
     }
 
