@@ -24,9 +24,7 @@ public class LopHoc {
     public ArrayList<SinhVien> getDanhsachsinhvien(){
         return Danhsachsinhvien;
     }
-    public void addSv(SinhVien sv){
-        getDanhsachsinhvien().add(sv);
-    }
+    public void addSv(SinhVien sv){ getDanhsachsinhvien().add(sv); }
     public void removeSV(int index){
         getDanhsachsinhvien().remove(index);
     }
