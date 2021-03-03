@@ -4,51 +4,69 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Person {
-    public String Ten;
-    public String GioiTinh;
-    public String NgaySinh;
-    public String DiaChi;
-    public Person(){
-    }
-    public Person(String ten, String gioiTinh, String ngaySinh, String diaChi) {
-        Ten = ten;
-        GioiTinh = gioiTinh;
-        NgaySinh = ngaySinh;
-        DiaChi = diaChi;
+    public String name;
+    public String gender;
+    public String birthday;
+    public String address;
+
+    public Person() { // ham khoi tao khong tham so
     }
 
-    public String getTen() { return Ten; }
-    public void setTen(String ten) { Ten = ten; }
+    public Person(String name, String gender, String birthday, String address) { // ham khoi tao day du tham so
+        this.name = name;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.address = address;
+    }
 
-    public String getGioiTinh() { return GioiTinh; }
-    public void setGioiTinh(String gioiTinh) { GioiTinh = gioiTinh; }
+    public String getName() {
+        return name;
+    }
 
-    public String getNgaySinh() { return NgaySinh; }
-    public void setNgaySinh(String ngaySinh) { NgaySinh = ngaySinh; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getDiaChi() { return DiaChi; }
-    public void setDiaChi(String diaChi) { DiaChi = diaChi; }
+    public String getGender() {
+        return gender;
+    }
 
-    public void NhapThongTin(){
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void inputInfo(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap Ten:");
-        setTen(sc.nextLine());
-
-        System.out.println("Nhap GioiTinh:");
-        setGioiTinh(sc.nextLine());
-
-        System.out.println("Nhap NgaySinh:");
-        setNgaySinh(sc.nextLine());
-
-        System.out.println("Nhap DiaChi:");
-        setDiaChi(sc.nextLine());
-
-        System.out.println();
+        System.out.println("Ten:");
+        setName(sc.nextLine());
+        System.out.println("Gioi tinh:");
+        setGender(sc.nextLine());
+        System.out.println("Ngay sinh:");
+        setBirthday(sc.nextLine());
+        System.out.println("Dia chi:");
+        setAddress(sc.nextLine());
     }
-    public void InThongTin(){
-        System.out.println("Tên SV : " + getTen());
-        System.out.println("GioiTinh của SV : " + getGioiTinh());
-        System.out.println("NgaySinh của SV : " + getNgaySinh());
-        System.out.println("DiaChi của SV : " + getDiaChi());
+
+    public void showInfo(){
+        System.out.println("Ho va ten:"+this.getName());
+        System.out.println("Gioi tinh:"+this.getGender());
+        System.out.println("Ngay sinh:"+this.getBirthday());
+        System.out.println("Dia chi:"+this.getAddress());
     }
 }

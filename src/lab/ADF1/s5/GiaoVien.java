@@ -6,62 +6,64 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GiaoVien extends Person {
-    public String DanhSachLopGiangDay;
-    public String MucLuong;
-    public String SoMonGiangDay;
-    public String CacMonGiangDay;
+    ArrayList<String> danhSachLop;
+    double mucLuong;
+    int soMonDay;
+    ArrayList<String> danhSachMonHoc;
 
-
-    public String getDanhSachLopGiangDay() { return DanhSachLopGiangDay; }
-    public void setDanhSachLopGiangDay(String danhSachLopGiangDay) { DanhSachLopGiangDay = danhSachLopGiangDay; }
-
-    public String getMucLuong() { return MucLuong; }
-    public void setMucLuong(String mucLuong) { MucLuong = mucLuong; }
-
-    public String getSoMonGiangDay() { return SoMonGiangDay; }
-    public void setSoMonGiangDay(String soMonGiangDay) { SoMonGiangDay = soMonGiangDay; }
-
-    public String getCacMonGiangDay() { return CacMonGiangDay; }
-    public void setCacMonGiangDay(String cacMonGiangDay) { CacMonGiangDay = cacMonGiangDay; }
-
-
-    public void NhapThongTin(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap Ten:");
-        setTen(sc.nextLine());
-
-        System.out.println("Nhap GioiTinh:");
-        setGioiTinh(sc.nextLine());
-
-        System.out.println("Nhap NgaySinh:");
-        setNgaySinh(sc.nextLine());
-
-        System.out.println("Nhap DiaChi:");
-        setDiaChi(sc.nextLine());
-
-        System.out.println("DanhSachLopGiangDay");
-        setDanhSachLopGiangDay(sc.nextLine());
-
-        System.out.println("Nhap MucLuong:");
-        setMucLuong(sc.nextLine());
-
-        System.out.println("Nhap SoMonGiangDay:");
-        setSoMonGiangDay(sc.nextLine());
-
-        System.out.println("Nhap CacMonGiangDay:");
-        setCacMonGiangDay(sc.nextLine());
-
-        System.out.println();
+    public GiaoVien() {
+        danhSachLop = new ArrayList<>();
+        danhSachMonHoc = new ArrayList<>();
     }
-    public void InThongTin(){
-        System.out.println("Tên GV: " + getTen());
-        System.out.println("GioiTinh của GV: " + getGioiTinh());
-        System.out.println("NgaySinh của GV: " + getNgaySinh());
-        System.out.println("DiaChi của GV: " + getDiaChi());
-        System.out.println("DanhSachLopGiangDay của GV : " + getDanhSachLopGiangDay());
-        System.out.println("MucLuong của GV : " + getMucLuong());
-        System.out.println("SoMonGiangDay : " + getSoMonGiangDay());
-        System.out.println("CacMonGiangDay : " + getCacMonGiangDay());
-        System.out.println();
+
+    public double getMucLuong() {
+        return mucLuong;
+    }
+
+    public void setMucLuong(double mucLuong) {
+        this.mucLuong = mucLuong;
+    }
+
+    public int getSoMonDay() {
+        return soMonDay;
+    }
+
+    public void setSoMonDay(int soMonDay) {
+        this.soMonDay = soMonDay;
+    }
+
+    public void inputInfo(){
+        super.inputInfo();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Muc luong:");
+        setMucLuong(sc.nextDouble());
+        System.out.println("So mon day:");
+        setSoMonDay(sc.nextInt());
+        sc.nextLine();
+        System.out.println("Danh sach cac mon:");
+        for(int i=0;i<getSoMonDay();i++){
+            danhSachMonHoc.add(sc.nextLine());
+        }
+        System.out.println("So lop day:");
+        int sl = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Danh sach lop:");
+        for(int i=0;i<sl;i++){
+            danhSachLop.add(sc.nextLine());
+        }
+    }
+
+    public void showInfo(){
+        super.showInfo();
+        System.out.println("Muc luong:"+getMucLuong());
+        System.out.println("So mon hoc dang day:"+getSoMonDay());
+        System.out.println("Danh sach mon hoc:");
+        for(String s: danhSachMonHoc){
+            System.out.println(s);
+        }
+        System.out.println("Danh sach lop hoc:");
+        for(String s: danhSachLop){
+            System.out.println(s);
+        }
     }
 }

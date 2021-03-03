@@ -4,17 +4,20 @@ import lab.ADF1.s4_2.SinhVien;
 
 public class Main {
     public static void main(String[] args){
-//        Person p = new Person();
-//        p.NhapThongTin();
-//        p.InThongTin();
-//
-//        Student sd = new Student();
-//        sd.NhapThongTin();
-//        sd.InThongTin();
-//        sd.KiemTraSinhVien();
+//            Person p1 = new Person();
+//            Person p2 = new Person("Nguyen Gia Thinh","Nam","29/2/1999","18 Hang bai");
 
-        GiaoVien GV = new GiaoVien();
-        GV.NhapThongTin();
-        GV.InThongTin();
-    }
+//        p1.inputInfo();
+//        p1.showInfo();
+//        p2.showInfo();
+
+//        SinhVien s = new SinhVien();
+//        s.inputInfo();
+//        s.showInfo();
+
+            GiaoVien gv = new GiaoVien();
+            gv.inputInfo();
+            gv.showInfo();
+
+        }
 }

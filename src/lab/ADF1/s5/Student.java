@@ -3,60 +3,56 @@ package lab.ADF1.s5;
 import java.util.Scanner;
 
 public class Student extends Person {
-    public String MaSV;
-    public int DiemThi;
-    public String Gmail;
+    int maSv;
+    float mark;
+    String email;
 
-    public String getMaSV() { return MaSV; }
-    public void setMaSV(String maSV) { MaSV = maSV; }
+    public int getMaSv() {
+        return maSv;
+    }
 
-    public int getDiemThi() { return DiemThi; }
-    public void setDiemThi(int diemThi) { DiemThi = diemThi; }
+    public void setMaSv(int maSv) {
+        this.maSv = maSv;
+    }
 
-    public String getGmail() { return Gmail; }
-    public void setGmail(String gmail) { Gmail = gmail; }
+    public float getMark() {
+        return mark;
+    }
 
-    public void NhapThongTin(){
+    public void setMark(float mark) {
+        this.mark = mark;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void inputInfo(){
+        super.inputInfo();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap Ten update...:");
-        setTen(sc.nextLine());
 
-        System.out.println("Nhap GioiTinh update...:");
-        setGioiTinh(sc.nextLine());
-
-        System.out.println("Nhap NgaySinh update...:");
-        setNgaySinh(sc.nextLine());
-
-        System.out.println("Nhap DiaChi update...:");
-        setDiaChi(sc.nextLine());
-
-        System.out.println("Nhap MaSV:");
-        setMaSV(sc.nextLine());
-
-        System.out.println("Nhap DiemThi:");
-        setDiemThi(sc.nextInt());
-        sc.next();
-        System.out.println("Nhap Gmail:");
-        setGmail(sc.next());
-
-        System.out.println();
-    }
-    public void InThongTin(){
-        System.out.println("Tên SV update...: " + getTen());
-        System.out.println("GioiTinh của SV update...: " + getGioiTinh());
-        System.out.println("NgaySinh của SV update...: " + getNgaySinh());
-        System.out.println("DiaChi của SV update...: " + getDiaChi());
-        System.out.println("MaSV của SV : " + getMaSV());
-        System.out.println("DiemThi của SV : " + getDiemThi());
-        System.out.println("Gmail của SV : " + getGmail());
-        System.out.println();
+        System.out.println("Ma SV:");
+        setMaSv(sc.nextInt());
+        System.out.println("Diem thi:");
+        setMark(sc.nextFloat());
+        sc.nextLine();
+        System.out.println("Email:");
+        setEmail(sc.nextLine());
     }
 
-    public void KiemTraSinhVien(){
-        if (getDiemThi() > 8.0)
-            System.out.println("Được nhận học bổng");
-        else
-            System.out.println("Không nhận học bổng");
+    public void showInfo(){
+        super.showInfo();
+        System.out.println("Ma SV: "+getMaSv());
+        System.out.println("Diem thi: "+getMark());
+        System.out.println("Email: "+getEmail());
+    }
+
+    public boolean ktHocBong(){
+        return getMark()>8;
     }
 
 }
