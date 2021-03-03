@@ -5,86 +5,71 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class PhoneBook extends Phone {
+    public ArrayList<PhoneNumber> phoneList;
 
-    ArrayList<String> PhoneList = new ArrayList();
+    public PhoneBook() {
+        phoneList = new ArrayList<>();
+    }
 
     @Override
-    void insertPhone(String name, String phone) {
-        boolean timThay = false;
-        for (String s : PhoneList) {
-            if (s.contains(name)) {
-                timThay = true;
-                if (!s.contains(phone)) {
-                    s += " : " + phone;
-                } else {
-                    System.out.println("Danh bạ này đã có sẵn");
+    public void insertPhone(String name, String phone) {
+        for(PhoneNumber p:phoneList){
+            if(p.getName().equals(name)){ // so sanh 2 string  world equals world -> true  helloworld equals world -> false
+                if(!p.getPhone().contains(phone)){ // kiem tra da co trong danh sach hay chua
+                    p.addPhone(phone);
                 }
+                return;
             }
         }
-        if (!timThay) {
-            PhoneList.add(name + "," + phone);
+        PhoneNumber p = new PhoneNumber(name,phone);
+        phoneList.add(p);
+    }
+
+    @Override
+    public void removePhone(String name) {
+        for(PhoneNumber p:phoneList){
+            if(p.getName().equals(name)){
+                phoneList.remove(p);
+                return;
+            }
         }
     }
 
     @Override
-    void removePhone(String name) {
-        boolean searched = false;
-        for (String s : PhoneList) {
-            if (name.equals(s.substring(0, s.indexOf(",")))) {
-                searched = true;
-                PhoneList.remove(s);
-                System.out.println("Removed");
-                break;
+    public void updatePhone(String name, String newPhone) {
+        for (PhoneNumber p:phoneList){
+            if(p.getName().equals(name)){
+                p.addPhone(newPhone);
+                return;
             }
         }
-        if (!searched) System.out.println("Not found person with name: " + name);
     }
 
     @Override
-    void updatePhone(String name, String newPhone) {
-        String s = name;
-        s = s.substring(0, s.indexOf(",")); //bỏ số điện thoại cũ (chỉ giữ lại tên)
-        PhoneList.set(PhoneList.indexOf(s), s + "," + newPhone); //đưa sdt mới vào
-        System.out.println("Updated");
-    }
-
-    @Override
-    void searchPhone(String name) {
-        boolean searched = false;
-        for (String s : PhoneList) {
-            if (s.contains(name)) {
-                searched = true;
-                System.out.println(s.toString());
-                break;
+    public void searchPhone(String name) {
+        for(PhoneNumber p:phoneList){
+            if(p.getName().equals(name)){
+                System.out.println("Da tim thay");
+                return;
             }
         }
-        if (!searched) System.out.println("Not found person");
+        System.out.println("Khong co trong danh ba");
     }
 
     @Override
-    void sort() {
-        if (PhoneList.size() == 0) System.out.println("PhoneList is empty");
-        else {
-            //Sắp xếp tăng dần theo tên
-            Collections.sort(PhoneList, new Comparator<String>() {
-                @Override
-                public int compare(String s, String t1) {
-                    return s.compareTo(t1);
-                }
-            });
-            System.out.println("Sort Ascending by name:");
-            for (String s : PhoneList) {
-                System.out.println(s);
+    public void sort() {
+        Collections.sort(phoneList, new Comparator<PhoneNumber>() {
+            @Override
+            public int compare(PhoneNumber o1, PhoneNumber o2) {
+                return o1.getName().compareTo(o2.getName());
             }
-            //Sắp xếp giảm dần theo tên
-            Collections.sort(PhoneList, new Comparator<String>() {
-                @Override
-                public int compare(String s, String t1) {
-                    return t1.compareTo(s);
-                }
-            });
-            System.out.println("Sort Descending by name:");
-            for (String s : PhoneList) {
+        });
+    }
+
+    public void printPhoneList(){
+        for(PhoneNumber p :phoneList){
+            System.out.println(p.getName());
+            for(String s:p.getPhone()){
                 System.out.println(s);
             }
         }
