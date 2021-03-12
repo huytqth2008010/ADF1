@@ -1,0 +1,24 @@
+package PRACTICAL;
+
+import java.util.Scanner;
+
+public class Hotel {
+    String name;
+    String Location;
+    String ownerName;
+    public Hotel() {
+    }
+    public Hotel(String name, String location, String ownerName) {
+        this.name = name;
+        this.Location = location;
+        this.ownerName = ownerName;
+    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getLocation() { return Location; }
+    public void setLocation(String location) { Location = location; }
+
+    public String getOwnerName() { return ownerName; }
+    public void setOwnerName(String ownerName) { this.ownerName = ownerName; }
+}
